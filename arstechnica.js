@@ -18,13 +18,11 @@ fs.readFile(argv.f, 'utf8', function (err,data) {
     return console.log(err);
   }
   $ = cheerio.load(data);// //
-    $('body').find('div, span').filter(
+    $('section').find('article').each(
         function(i,elem) {
-          return $(this).attr('class') == "p" || $(this).attr('class') == "story-title";
-        }
-      ).each(
-        function(i,elem) {
+          console.log("*********************************************************");
           console.log($(this).html());
+          console.log("*********************************************************");
         }
       )
       console.log('</body>');
